@@ -7,7 +7,7 @@ const CheckOut = () => {
 
     const { user } = useContext(AuthContext)
     const services = useLoaderData()
-    const { _id, title, price } = services
+    const { _id, title, price, img } = services
 
     const handleServices = event => {
         event.preventDefault()
@@ -20,12 +20,22 @@ const CheckOut = () => {
         const order = {
             customerName: name,
             email,
+            img,
+            Service: title,
             date,
             price: price,
-            service: _id
+            service_id: _id
         }
 
         console.log(order)
+        fetch('http://localhost:5000/bookings',
+
+
+        )
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
     }
 
     return (
