@@ -7,6 +7,7 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value
+        form.reset()
         console.log(email, password)
     }
     return (
@@ -38,7 +39,7 @@ const Login = () => {
                                 <input className="btn bg-orange-600 border-0" type="submit" value="Login" />
                             </div>
                         </form>
-                        <p>Already have an account ? <Link className='text-orange-500 font-bold' to={'/register'}>Sign Up</Link> </p>
+                        <p>New this website? <Link className='text-orange-500 font-bold' to={'/register'}>Sign Up</Link> </p>
                     </div>
                 </div>
             </div>

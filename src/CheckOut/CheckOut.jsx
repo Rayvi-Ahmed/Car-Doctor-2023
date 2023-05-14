@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
-
 const CheckOut = () => {
 
     const { user } = useContext(AuthContext)
@@ -16,8 +15,9 @@ const CheckOut = () => {
         const date = form.date.value;
         const email = form.email.value;
         const price = form.price.value;
+        form.reset()
 
-        const order = {
+        const booking = {
             customerName: name,
             email,
             img,
@@ -27,14 +27,25 @@ const CheckOut = () => {
             service_id: _id
         }
 
-        console.log(order)
-        fetch('http://localhost:5000/bookings',
+        console.log(booking)
+        fetch('http://localhost:5000/bookings', {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
 
+            },
+            body: JSON.stringify(booking)
+        }
 
         )
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                if (data.insertedId > 0) {
+                    alert('data is added')
+                } else {
+                    alert('No data add at database !')
+                }
             })
     }
 

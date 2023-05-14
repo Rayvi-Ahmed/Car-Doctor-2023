@@ -13,6 +13,7 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const name = form.name.value
+        form.reset()
         console.log(email, password, name)
 
         creatUser(email, password)
@@ -57,10 +58,10 @@ const Register = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <input className="btn bg-orange-600 border-0" type="submit" value="Login" />
+                                <input className="btn bg-orange-600 border-0" type="submit" value="Sign Up" />
                             </div>
                         </form>
-                        <p>Already have an account ? <Link className='text-orange-500 font-bold' to={'/login'}>Login</Link> </p>
+                        <p>Already have an account ? <Link className='text-orange-500 font-bold' to={'/login'}>Log in</Link> </p>
                     </div>
                 </div>
             </div>
