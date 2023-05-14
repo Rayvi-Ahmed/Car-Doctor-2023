@@ -14,8 +14,6 @@ const Navbar = () => {
     const navItems = <>
         <li><Link to={'/'}>Home</Link></li>
         <li><Link to={'/about'}>About</Link></li>
-        <li><Link to={'/services'}>Services</Link></li>
-        <li><Link to={'/blog'}>Blog</Link></li>
 
         {user?.email ? <>
             <li><Link to={'/bookings'}>My Bookings</Link></li>

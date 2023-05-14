@@ -13,16 +13,16 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const name = form.name.value
-        form.reset()
-        console.log(email, password, name)
-
         creatUser(email, password)
             .then(result => {
                 const user = result.user
                 console.log(user)
             })
             .catch(error => console.log(error))
+        form.reset()
 
+
+        console.log(name, email, password)
 
     }
 
@@ -35,6 +35,8 @@ const Register = () => {
                 <div className="card flex-shrink-0  max-w-sm shadow-2xl bg-base-100 w-1/2">
                     <div className="card-body">
                         <h1 className='text-3xl font-bold text-center'>Sign Up</h1>
+
+                        {/* Start Form */}
                         <form onSubmit={handleRegister}>
                             <div className="form-control">
                                 <label className="label">
