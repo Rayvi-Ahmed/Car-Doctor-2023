@@ -8,8 +8,6 @@ import CheckOut from "../CheckOut/CheckOut";
 import Bookings from "../Pages/Bookings/Bookings";
 import PrivateRoute from "../Pages/PrivateRoute/PrivateRoute";
 
-
-
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -33,14 +31,17 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/bookings",
-                element: <Bookings></Bookings>
+                element: <PrivateRoute>
+                    <Bookings></Bookings>
+                </PrivateRoute>
 
             },
             {
                 path: '/checkout/:id',
-                element: <PrivateRoute>
-                    <CheckOut></CheckOut>
-                </PrivateRoute>,
+                element:
+                    <PrivateRoute>
+                        <CheckOut></CheckOut>
+                    </PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
             }
 
